@@ -4,11 +4,8 @@ const url = require("url");
 
 
 
-
-
-
-
-const myServer = http.createServer((req,res)=>{
+function myHandler(req,res){
+    if(req.url === "/favicon.ico") return res.end();
     const myurl = url.parse(req.url,true);
     const log = `${Date.now()}: ${req.url} new Request received\n`
     console.log("myurl==>",myurl)
@@ -29,9 +26,10 @@ const myServer = http.createServer((req,res)=>{
                 res.end("Hello From Server Again");
 
         }
-        // res.end("Hello From Server Again");
     })
-    // res.end("Hello from server");
-});
+}
+
+
+const myServer = http.createServer(myHandler);
 
 myServer.listen(8000,()=> console.log("server started!"));

@@ -1,6 +1,6 @@
-const http = require("http");
-const fs = require("fs");
-const url = require("url");
+// const http = require("http");
+// const fs = require("fs");
+// const url = require("url");
 
 const express = require("express");
 const app = express(); // app is like handler function
@@ -12,6 +12,8 @@ app.get("/",(req,res)=>{
 app.get("/about",(req,res)=>{
     return res.send("Hello from About page")
 });
+
+app.listen(8000,() => console.log("Server Started!"))
 
 
 
@@ -41,6 +43,6 @@ app.get("/about",(req,res)=>{
 // }
 
 
-const myServer = http.createServer(app);
+// const myServer = http.createServer(app);
 
-myServer.listen(8000,()=> console.log("server started!"));
+// myServer.listen(8000,()=> console.log("server started!"));

@@ -1,13 +1,24 @@
 const express = require("express");
-const app = express(); // app is like handler function now
+const users = require("./MOCK_DATA.json")
 
-app.get("/",(req,res)=>{
-    return res.send("Hello from Home page")
+const app = express(); // app is like handler function now
+const PORT = 8000;
+
+app.get("/api/users",(req,res)=>{
+    return res.json(users);
+});
+app.get("/users",(req,res)=>{
+    const html = `
+    <ul>
+    ${users.map((user)=> `<li>${user.first_name}</li>`).join("")}
+    </ul>
+    `
+    return res.send(html)
 });
 
 app.get("/about",(req,res)=>{
     return res.send("Hello from About page")
 });
 
-app.listen(8000,() => console.log("Server Started!"))
+app.listen(PORT,() => console.log("Server Started!"))
 

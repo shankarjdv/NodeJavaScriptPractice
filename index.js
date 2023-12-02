@@ -15,30 +15,30 @@ app.get("/about",(req,res)=>{
 
 
 
-function myHandler(req,res){
-    if(req.url === "/favicon.ico") return res.end();
-    const myurl = url.parse(req.url,true);
-    const log = `${Date.now()}: ${req.url} new Request received\n`
-    console.log("myurl==>",myurl)
-    // non blocking operation
-    fs.appendFile("log.txt",log,(err,data)=>{
+// function myHandler(req,res){
+//     if(req.url === "/favicon.ico") return res.end();
+//     const myurl = url.parse(req.url,true);
+//     const log = `${Date.now()}: ${req.url} new Request received\n`
+//     console.log("myurl==>",myurl)
+//     // non blocking operation
+//     fs.appendFile("log.txt",log,(err,data)=>{
 
-        switch(myurl.pathname) { 
-            case "/":
-                res.end("Home Page");
-                break;
-            case "/contactMe":
-                res.end("contact Me");
-                break;
-            case "/about":
-                res.end("I am Shankar Jadhav");
-                break;
-            default :
-                res.end("Hello From Server Again");
+//         switch(myurl.pathname) { 
+//             case "/":
+//                 res.end("Home Page");
+//                 break;
+//             case "/contactMe":
+//                 res.end("contact Me");
+//                 break;
+//             case "/about":
+//                 res.end("I am Shankar Jadhav");
+//                 break;
+//             default :
+//                 res.end("Hello From Server Again");
 
-        }
-    })
-}
+//         }
+//     })
+// }
 
 
 const myServer = http.createServer(app);

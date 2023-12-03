@@ -78,3 +78,13 @@
 1701511953734: /favicon.ico new Request received
 1701512022766: /about?q=abc&userid=45 new Request received
 1701512022802: /favicon.ico new Request received
+
+1701596984382: ::1 GET: /api/users
+
+1701596990621: ::1 GET: /users
+
+1701596992347: ::1 GET: /users
+
+1701597021634: ::1 GET: /user
+
+1701597050549: ::1 POST: /user
